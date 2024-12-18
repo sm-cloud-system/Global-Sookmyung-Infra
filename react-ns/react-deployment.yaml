@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-deployment
+  labels:
+    app: react
+  namespace: react-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react
+  template:
+    metadata:
+      labels:
+        app: react
+    spec:
+      containers:
+        - name: nginx
+          image: ghcr.io/sm-cloud-system/global-sookmyung-front:latest
+          ports:
+            - containerPort: 80
