@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv
+spec:
+  volumeMode: Filesystem
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ''
+  hostPath:
+    path: /dbdata
+    type: DirectoryOrCreate
+  claimRef:
+    name: mysql-pvc
+    namespace: mysql-ns
