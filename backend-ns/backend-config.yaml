@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: backend-ns
+data:
+  SPRING_PROFILES_ACTIVE: dev
+  DB_DRIVER_CLASS: com.mysql.cj.jdbc.Driver
+  DB_URL: jdbc:mysql://mysql.mysql-ns.svc.cluster.local:3306/global_sookmyung
+  DB_USERNAME: root
+  REDIS_HOST: redis.redis-ns.svc.cluster.local
+  REDIS_PORT: "6379"
+  JWT_ACCESS_TOKEN_EXPIRE_TIME_FOR_GUEST: "30000"
+  JWT_ACCESS_TOKEN_EXPIRE_TIME: "14400"
+  JWT_REFRESH_TOKEN_EXPIRE_TIME: "604800016"
+  SMTP_HOST: smtp.gmail.com 
+  SMTP_USERNAME: global1sookmyung@gmail.com
+  SMTP_PORT: "587"
